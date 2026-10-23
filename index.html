@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0A0A0A" />
+
+  <!-- ====================================================================
+       À REMPLACER : titre de l'onglet et description (mets ton nom)
+       ==================================================================== -->
+  <title>Alex Mercier — Monteur vidéo</title>
+  <meta name="description" content="Alex Mercier, monteur vidéo freelance : clips, publicités, documentaires. Montage, étalonnage, motion design et son." />
+
+  <!-- Polices Google (si elles ne chargent pas, le site garde des polices système) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Signale que le JavaScript fonctionne (sert aux animations) -->
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- Rideau d'ouverture (1 seconde, comme un clap de début) -->
+  <div class="intro" aria-hidden="true">
+    <span class="intro__tc mono" id="intro-tc">00:00:00:00</span>
+    <span class="intro__name">Alex Mercier</span>
+  </div>
+
+  <!-- Aperçu flottant des projets (suit la souris sur ordinateur) -->
+  <div class="cursor-preview" aria-hidden="true">
+    <div class="cursor-preview__inner"></div>
+  </div>
+
+  <!-- ===================== BARRE DE NAVIGATION ===================== -->
+  <header class="nav">
+    <a class="nav__brand" href="#top" aria-label="Alex Mercier, retour en haut">
+      <!-- À REMPLACER : ton nom -->
+      Alex Mercier<span class="nav__brand-role">, monteur</span>
+    </a>
+
+    <nav class="nav__links" id="menu" aria-label="Navigation principale">
+      <a href="#travaux">Travaux</a>
+      <a href="#showreel">Showreel</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- À REMPLACER : ta disponibilité -->
+    <p class="nav__status"><span class="dot" aria-hidden="true"></span>Disponible</p>
+
+    <button class="nav__burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== HERO : le showreel plein écran ===================== -->
+    <section class="hero" id="top" aria-label="Présentation">
+      <div class="hero__media">
+        <!-- ====================================================================
+             À REMPLACER : ta vidéo d'ambiance (un extrait muet de 10-20 s en .mp4).
+             1. Mets ton fichier dans le dossier du site, ex : extrait.mp4
+             2. Dé-commente la balise <video> ci-dessous.
+             3. Supprime le <div class="footage"> juste en dessous.
+             ==================================================================== -->
+        <!--
+        <video class="hero__video" src="extrait.mp4" autoplay muted loop playsinline></video>
+        -->
+        <div class="footage" aria-hidden="true">
+          <span class="footage__layer footage__layer--a"></span>
+          <span class="footage__layer footage__layer--b"></span>
+          <span class="footage__layer footage__layer--c"></span>
+        </div>
+        <span class="hero__grain" aria-hidden="true"></span>
+        <span class="hero__shade" aria-hidden="true"></span>
+      </div>
+
+      <!-- Infos "caméra" dans les coins, comme un écran de tournage -->
+      <div class="hero__hud mono" aria-hidden="true">
+        <span><span class="rec"></span>REC</span>
+        <span id="hero-tc">00:00:00:00</span>
+      </div>
+
+      <div class="hero__content">
+        <p class="hero__role mono">Monteur vidéo · Freelance · Paris</p>
+        <h1 class="hero__name">
+          <!-- À REMPLACER : ton prénom et ton nom -->
+          <span class="line"><span>Alex</span></span>
+          <span class="line"><span>Mercier</span></span>
+        </h1>
+      </div>
+
+      <!-- Bouton rond qui tourne (lien vers le showreel) -->
+      <a class="reel-badge" href="#showreel" aria-label="Voir le showreel">
+        <svg class="reel-badge__ring" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><path id="circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" /></defs>
+          <text><textPath href="#circle">SHOWREEL 2026 • VOIR LE FILM • SHOWREEL 2026 • </textPath></text>
+        </svg>
+        <span class="reel-badge__play" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        </span>
+      </a>
+
+      <button class="hero__pause mono" id="pause" type="button" aria-pressed="false">Pause</button>
+    </section>
+
+    <!-- ===================== PHRASE D'INTRODUCTION ===================== -->
+    <section class="statement" id="intro-text">
+      <p class="statement__label mono">(Introduction)</p>
+      <!-- À REMPLACER : ta phrase de présentation. Les mots entre <em> sont en italique. -->
+      <p class="statement__text" data-words>
+        Je transforme des heures de rushes en films qui tiennent en haleine —
+        clips, publicités et documentaires montés avec <em>rythme</em>, <em>précision</em>
+        et un vrai sens de l'histoire.
+      </p>
+      <div class="statement__meta mono">
+        <!-- À REMPLACER : ta ville et ton email -->
+        <span>Basé à Paris, France</span>
+        <a href="mailto:bonjour@alexmercier.fr">bonjour@alexmercier.fr</a>
+      </div>
+    </section>
+
+    <!-- ===================== TRAVAUX ===================== -->
+    <section class="work" id="travaux">
+      <div class="work__head">
+        <h2 class="title">Travaux <sup class="mono">(06)</sup></h2>
+
+        <div class="view-toggle" role="group" aria-label="Affichage des projets">
+          <button type="button" class="view-toggle__btn is-active" data-view="list" aria-pressed="true">Liste</button>
+          <button type="button" class="view-toggle__btn" data-view="grid" aria-pressed="false">Grille</button>
+        </div>
+      </div>
+
+      <!-- En-têtes des colonnes (vue liste) -->
+      <div class="work__cols mono" aria-hidden="true">
+        <span>Projet</span><span>Catégorie</span><span>Rôle</span><span>Année</span>
+      </div>
+
+      <!-- ====================================================================
+           À REMPLACER pour chaque projet :
+           - href="#"                 → le lien vers la vidéo (YouTube, Vimeo…)
+           - data-thumb="ph-1"        → garde, ou mets ton image : data-img="mon-image.jpg"
+           - le titre, la catégorie, ton rôle, l'année et la durée
+           ==================================================================== -->
+      <ol class="work__list" id="work-list">
+
+        <li class="project" data-reveal>
+          <a href="#" target="_blank" rel="noopener" data-thumb="ph-1">
+            <span class="project__thumb ph-1" aria-hidden="true"><span class="project__dur mono">02:14</span></span>
+            <span class="project__title">Nuit Blanche</span>
+            <span class="project__cat">Clip musical</span>
+            <span class="project__role">Montage, étalonnage</span>
+            <span class="project__year mono">2026</span>
+          </a>
+        </li>
+
+        <li class="project" data-reveal>
+          <a href="#" target="_blank" rel="noopener" data-thumb="ph-2">
+            <span class="project__thumb ph-2" aria-hidden="true"><span class="project__dur mono">00:30</span></span>
+            <span class="project__title">Maison Lumen</span>
+            <span class="project__cat">Publicité</span>
+            <span class="project__role">Montage, motion design</span>
+            <span class="project__year mono">2026</span>
+          </a>
+        </li>
+
+        <li class="project" data-reveal>
+          <a href="#" target="_blank" rel="noopener" data-thumb="ph-3">
+            <span class="project__thumb ph-3" aria-hidden="true"><span class="project__dur mono">08:52</span></span>
+            <span class="project__title">Les Mains du métier</span>
+            <span class="project__cat">Documentaire</span>
+            <span class="project__role">Montage, son</span>
+            <span class="project__year mono">2025</span>
+          </a>
+        </li>
+
+        <li class="project" data-reveal>
+          <a href="#" target="_blank" rel="noopener" data-thumb="ph-4">
+            <span class="project__thumb ph-4" aria-hidden="true"><span class="project__dur mono">01:48</span></span>
+            <span class="project__title">Festival Horizon</span>
+            <span class="project__cat">Aftermovie</span>
+            <span class="project__role">Montage, étalonnage</span>
+            <span class="project__year mono">2025</span>
+          </a>
+        </li>
+
+        <li class="project" data-reveal>
+          <a href="#" target="_blank" rel="noopener" data-thumb="ph-5">
+            <span class="project__thumb ph-5" aria-hidden="true"><span class="project__dur mono">00:15</span></span>
+            <span class="project__title">En coulisses</span>
+            <span class="project__cat">Réseaux sociaux</span>
+            <span class="project__role">Montage</span>
+            <span class="project__year mono">2025</span>
+          </a>
+        </li>
+
+        <li class="project" data-reveal>
+          <a href="#" target="_blank" rel="noopener" data-thumb="ph-6">
+            <span class="project__thumb ph-6" aria-hidden="true"><span class="project__dur mono">12:03</span></span>
+            <span class="project__title">Carnet d'Islande</span>
+            <span class="project__cat">YouTube</span>
+            <span class="project__role">Montage, étalonnage, son</span>
+            <span class="project__year mono">2024</span>
+          </a>
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- ===================== SHOWREEL + DÉTAIL TIMECODÉ ===================== -->
+    <section class="reel" id="showreel">
+      <div class="reel__head">
+        <h2 class="title">Showreel <sup class="mono">(2026)</sup></h2>
+        <p class="reel__lead">Deux minutes pour voir ma façon de couper, d'étalonner et de rythmer.</p>
+      </div>
+
+      <!-- ====================================================================
+           À REMPLACER : la vidéo du showreel.
+           1. Va sur ta vidéo YouTube ou Vimeo et copie l'adresse « embed »,
+              ex : https://www.youtube.com/embed/XXXXXXXX
+           2. Supprime le bloc <div class="reel__poster"> ci-dessous
+              et dé-commente l'<iframe> juste en dessous, en collant ton adresse.
+           ==================================================================== -->
+      <div class="reel__frame" data-reveal>
+        <div class="reel__poster">
+          <span class="reel__play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+          </span>
+          <span class="reel__hint mono">Colle ici ta vidéo de showreel</span>
+        </div>
+        <!--
+        <iframe
+          src="https://www.youtube.com/embed/XXXXXXXX"
+          title="Showreel"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+        -->
+      </div>
+
+      <!-- Détail du showreel : à quel moment apparaît quel projet.
+           À REMPLACER : les timecodes et les projets de TON showreel. -->
+      <div class="breakdown" data-reveal>
+        <p class="breakdown__label mono">Détail du film</p>
+        <ol class="breakdown__list">
+          <li><span class="mono">00:00</span><span>Nuit Blanche</span><span class="muted">Clip — montage, étalonnage</span></li>
+          <li><span class="mono">00:24</span><span>Maison Lumen</span><span class="muted">Publicité — montage, motion</span></li>
+          <li><span class="mono">00:51</span><span>Les Mains du métier</span><span class="muted">Documentaire — montage, son</span></li>
+          <li><span class="mono">01:20</span><span>Festival Horizon</span><span class="muted">Aftermovie — montage</span></li>
+          <li><span class="mono">01:47</span><span>Carnet d'Islande</span><span class="muted">YouTube — montage, étalonnage</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICES ===================== -->
+    <section class="services" id="services">
+      <h2 class="title">Ce que je fais</h2>
+      <ol class="services__list">
+        <li class="service" data-reveal>
+          <span class="service__num mono">01</span>
+          <h3 class="service__name">Montage</h3>
+          <p class="service__desc">Construire le récit, trouver le rythme, choisir chaque coupe.</p>
+        </li>
+        <li class="service" data-reveal>
+          <span class="service__num mono">02</span>
+          <h3 class="service__name">Étalonnage</h3>
+          <p class="service__desc">Donner une couleur et une lumière cohérentes à tout le film.</p>
+        </li>
+        <li class="service" data-reveal>
+          <span class="service__num mono">03</span>
+          <h3 class="service__name">Motion design</h3>
+          <p class="service__desc">Titres, habillage et animations pour appuyer le propos.</p>
+        </li>
+        <li class="service" data-reveal>
+          <span class="service__num mono">04</span>
+          <h3 class="service__name">Son</h3>
+          <p class="service__desc">Montage son, mixage et musique pour porter l'émotion.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===================== À PROPOS ===================== -->
+    <section class="about" id="apropos">
+      <!-- À REMPLACER : ta photo. Remplace ce <div> par
+           <img class="about__photo" src="ta-photo.jpg" alt="Portrait d'Alex Mercier" /> -->
+      <div class="about__photo ph-photo" role="img" aria-label="Portrait à ajouter" data-reveal></div>
+
+      <div class="about__body" data-reveal>
+        <h2 class="title">À propos</h2>
+        <!-- À REMPLACER : ton vrai texte de présentation -->
+        <p class="about__lead">
+          Monteur vidéo freelance, je travaille avec des artistes, des marques
+          et des réalisateurs, du premier dérushage jusqu'au master final.
+        </p>
+        <p>
+          Je m'attache autant au fond — la structure, le rythme — qu'aux
+          détails : une transition propre, une couleur juste, un son qui respire.
+        </p>
+
+        <!-- Fiche technique. À REMPLACER : garde seulement ce qui est vrai pour toi. -->
+        <dl class="facts">
+          <div><dt class="mono">Logiciels</dt><dd>DaVinci Resolve, Premiere Pro, After Effects</dd></div>
+          <div><dt class="mono">Formats</dt><dd>Clip, publicité, documentaire, réseaux sociaux</dd></div>
+          <div><dt class="mono">Langues</dt><dd>Français, anglais</dd></div>
+          <div><dt class="mono">Lieu</dt><dd>Paris — et à distance</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- Bandeau défilant de disponibilité -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Disponible pour de nouveaux projets</span><span class="ticker__dot"></span>
+        <span>Clips · Pubs · Documentaires</span><span class="ticker__dot"></span>
+        <span>Disponible pour de nouveaux projets</span><span class="ticker__dot"></span>
+        <span>Clips · Pubs · Documentaires</span><span class="ticker__dot"></span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ===================== CONTACT / PIED DE PAGE ===================== -->
+  <footer class="contact" id="contact">
+    <div class="contact__top">
+      <h2 class="contact__title">
+        Travaillons<br /><em>ensemble.</em>
+      </h2>
+      <!-- À REMPLACER : ton adresse email -->
+      <a class="contact__button" href="mailto:bonjour@alexmercier.fr" data-magnetic>
+        <span>Me contacter</span>
+      </a>
+    </div>
+
+    <div class="contact__links">
+      <!-- À REMPLACER : ton email -->
+      <a class="pill" href="mailto:bonjour@alexmercier.fr">bonjour@alexmercier.fr</a>
+      <!-- À REMPLACER : ton numéro (ou supprime la ligne) -->
+      <a class="pill" href="tel:+33600000000">+33 6 00 00 00 00</a>
+    </div>
+
+    <div class="contact__bottom">
+      <div class="contact__col">
+        <p class="mono muted">Heure locale</p>
+        <p><span id="clock">--:--</span> Paris</p>
+      </div>
+      <div class="contact__col">
+        <p class="mono muted">Réseaux</p>
+        <!-- À REMPLACER : tes liens. Mets le bon href ou supprime la ligne. -->
+        <ul class="socials">
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Vimeo</a></li>
+          <li><a href="#" target="_blank" rel="noopener">YouTube</a></li>
+          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div class="contact__col contact__col--end">
+        <p class="mono muted">© <span id="year">2026</span></p>
+        <a href="#top">Haut de page ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# Ce dépôt ne contient que le portfolio du monteur vidéo
+# (index.html, style.css, script.js).
+# Les autres projets rangés dans le même dossier ne sont pas envoyés sur GitHub.
+boutique/
+yaourt/
+yaourt-references/
+docs/
+.claude/
+
+# Fichiers système
+Thumbs.db
+desktop.ini
+.DS_Store
