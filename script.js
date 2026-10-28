@@ -126,7 +126,7 @@
         });
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
-    document.querySelectorAll("#travaux, #showreel, #apropos, #contact").forEach(function (s) { spy.observe(s); });
+    document.querySelectorAll("#travaux, #showreel, #methode, #apropos, #faq, #contact").forEach(function (s) { spy.observe(s); });
   }
 
   /* --- Phrase d'intro : les mots s'allument un par un au défilement --- */

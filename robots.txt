@@ -1,0 +1,6 @@
+# Autorise tous les moteurs de recherche à visiter tout le site
+User-agent: *
+Allow: /
+
+# Adresse du plan du site (aide Google à tout trouver)
+Sitemap: https://ferreol23.github.io/portfolio-monteur-video/sitemap.xml

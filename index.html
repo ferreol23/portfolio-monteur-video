@@ -6,10 +6,62 @@
   <meta name="theme-color" content="#0A0A0A" />
 
   <!-- ====================================================================
-       À REMPLACER : titre de l'onglet et description (mets ton nom)
+       À REMPLACER : titre de l'onglet et description (mets ton nom).
+       Le titre est ce que Google affiche en gros dans ses résultats.
        ==================================================================== -->
-  <title>Alex Mercier — Monteur vidéo</title>
-  <meta name="description" content="Alex Mercier, monteur vidéo freelance : clips, publicités, documentaires. Montage, étalonnage, motion design et son." />
+  <title>Alex Mercier — Monteur vidéo freelance (clips, pubs, documentaires)</title>
+  <meta name="description" content="Alex Mercier, monteur vidéo freelance à Paris : clips, publicités et documentaires. Montage, étalonnage, motion design et son — du premier rush au master final." />
+
+  <!-- ====================================================================
+       RÉFÉRENCEMENT GOOGLE (SEO).
+       À REMPLACER : ton nom, ta ville et l'adresse du site.
+       Si tu mets un jour ton propre domaine (.com), remplace l'adresse
+       « ferreol23.github.io/portfolio-monteur-video » dans TOUTES les
+       lignes ci-dessous par ton domaine.
+       ==================================================================== -->
+  <link rel="canonical" href="https://ferreol23.github.io/portfolio-monteur-video/" />
+  <meta name="author" content="Alex Mercier" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="monteur vidéo, montage vidéo, monteur freelance, monteur vidéo Paris, étalonnage, motion design, clip, publicité, documentaire, aftermovie" />
+
+  <!-- Aperçu quand on partage le lien (réseaux sociaux, messageries) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Alex Mercier — Monteur vidéo" />
+  <meta property="og:title" content="Alex Mercier — Monteur vidéo freelance" />
+  <meta property="og:description" content="Clips, publicités, documentaires. Montage, étalonnage, motion design et son." />
+  <meta property="og:url" content="https://ferreol23.github.io/portfolio-monteur-video/" />
+  <meta property="og:image" content="https://ferreol23.github.io/portfolio-monteur-video/og-image.jpg" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Alex Mercier — Monteur vidéo freelance" />
+  <meta name="twitter:description" content="Clips, publicités, documentaires — montés avec rythme et précision." />
+  <meta name="twitter:image" content="https://ferreol23.github.io/portfolio-monteur-video/og-image.jpg" />
+
+  <!-- Petite icône de l'onglet -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Fiche d'identité pour Google (l'aide à bien te reconnaître).
+       À REMPLACER : nom, email, ville et liens de tes réseaux. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Alex Mercier",
+    "jobTitle": "Monteur vidéo",
+    "description": "Monteur vidéo freelance : clips, publicités et documentaires.",
+    "url": "https://ferreol23.github.io/portfolio-monteur-video/",
+    "image": "https://ferreol23.github.io/portfolio-monteur-video/og-image.jpg",
+    "email": "bonjour@alexmercier.fr",
+    "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
+    "knowsAbout": ["Montage vidéo", "Étalonnage", "Motion design", "Montage son"],
+    "sameAs": [
+      "https://instagram.com/",
+      "https://vimeo.com/",
+      "https://youtube.com/",
+      "https://linkedin.com/"
+    ]
+  }
+  </script>
 
   <!-- Polices Google (si elles ne chargent pas, le site garde des polices système) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,14 +91,30 @@
   <!-- ===================== BARRE DE NAVIGATION ===================== -->
   <header class="nav">
     <a class="nav__brand" href="#top" aria-label="Alex Mercier, retour en haut">
+      <!-- LOGO : une pellicule de film avec un bouton lecture. Il sert aussi
+           de favicon (petite icône de l'onglet), dans le fichier favicon.svg. -->
+      <svg class="logo" viewBox="0 0 40 40" width="30" height="30" aria-hidden="true" focusable="false">
+        <rect x="2.6" y="5.6" width="34.8" height="28.8" rx="7" fill="none" stroke="currentColor" stroke-width="2.3"/>
+        <g fill="currentColor" opacity="0.45">
+          <rect x="6.4" y="10.2" width="2.8" height="2.8" rx="0.9"/>
+          <rect x="6.4" y="18.6" width="2.8" height="2.8" rx="0.9"/>
+          <rect x="6.4" y="27" width="2.8" height="2.8" rx="0.9"/>
+          <rect x="30.8" y="10.2" width="2.8" height="2.8" rx="0.9"/>
+          <rect x="30.8" y="18.6" width="2.8" height="2.8" rx="0.9"/>
+          <rect x="30.8" y="27" width="2.8" height="2.8" rx="0.9"/>
+        </g>
+        <path class="logo__play" d="M16.4 14.6 L26 20 L16.4 25.4 Z" fill="currentColor"/>
+      </svg>
       <!-- À REMPLACER : ton nom -->
-      Alex Mercier<span class="nav__brand-role">, monteur</span>
+      <span class="nav__brand-name">Alex Mercier<span class="nav__brand-role">, monteur</span></span>
     </a>
 
     <nav class="nav__links" id="menu" aria-label="Navigation principale">
       <a href="#travaux">Travaux</a>
       <a href="#showreel">Showreel</a>
+      <a href="#methode">Méthode</a>
       <a href="#apropos">À propos</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -285,6 +353,36 @@
       </ol>
     </section>
 
+    <!-- ===================== MÉTHODE / PROCESS ===================== -->
+    <section class="method" id="methode">
+      <div class="method__head">
+        <h2 class="title">Comment on travaille<br />ensemble</h2>
+        <p class="method__lead">Un déroulé clair, de ton premier message à la vidéo finale.</p>
+      </div>
+      <ol class="steps">
+        <li class="step" data-reveal>
+          <span class="step__num mono">Étape 01</span>
+          <h3 class="step__name">Brief</h3>
+          <p class="step__desc">On cadre ton besoin : objectif, durée, ton, format et délais. Tu m'envoies tes rushes et tes références.</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="step__num mono">Étape 02</span>
+          <h3 class="step__name">Dérushage</h3>
+          <p class="step__desc">Je trie et j'organise la matière, je repère les meilleures prises et je prépare la structure du récit.</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="step__num mono">Étape 03</span>
+          <h3 class="step__name">Montage</h3>
+          <p class="step__desc">Première version, puis allers-retours. On affine le rythme, l'étalonnage, le motion et le son.</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="step__num mono">Étape 04</span>
+          <h3 class="step__name">Livraison</h3>
+          <p class="step__desc">J'exporte le master aux bons formats pour chaque plateforme (cinéma, web, réseaux), prêt à publier.</p>
+        </li>
+      </ol>
+    </section>
+
     <!-- ===================== À PROPOS ===================== -->
     <section class="about" id="apropos">
       <!-- À REMPLACER : ta photo. Remplace ce <div> par
@@ -312,6 +410,90 @@
         </dl>
       </div>
     </section>
+
+    <!-- ===================== ILS M'ONT FAIT CONFIANCE ===================== -->
+    <!-- À REMPLACER : mets les noms (ou logos) de tes vrais clients.
+         Pour un logo image : <li><img src="logo-client.svg" alt="Nom du client" /></li>
+         Tant que tu n'as rien, tu peux supprimer toute cette section. -->
+    <section class="clients" id="clients">
+      <p class="clients__label mono">Ils m'ont fait confiance</p>
+      <ul class="clients__list" data-reveal>
+        <li>Client 01</li>
+        <li>Client 02</li>
+        <li>Client 03</li>
+        <li>Client 04</li>
+        <li>Client 05</li>
+        <li>Client 06</li>
+      </ul>
+    </section>
+
+    <!-- ===================== TÉMOIGNAGES ===================== -->
+    <!-- À REMPLACER : mets de vrais retours de clients (ou supprime la section).
+         N'invente rien : laisse vide tant que tu n'as pas de vrai témoignage. -->
+    <section class="quotes" id="temoignages">
+      <h2 class="title">Ce qu'on en dit</h2>
+      <div class="quotes__grid">
+        <figure class="quote" data-reveal>
+          <blockquote>« Place ici le retour d'un client : ce qu'il a aimé dans ta façon de travailler. »</blockquote>
+          <figcaption><span class="quote__name">Nom du client</span><span class="quote__role mono">Rôle · Entreprise</span></figcaption>
+        </figure>
+        <figure class="quote" data-reveal>
+          <blockquote>« Un deuxième témoignage, court et concret, sur le résultat et le déroulé. »</blockquote>
+          <figcaption><span class="quote__name">Nom du client</span><span class="quote__role mono">Rôle · Entreprise</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== FAQ (questions fréquentes) ===================== -->
+    <!-- Bon pour Google : il peut afficher ces questions directement.
+         À REMPLACER : adapte les réponses (surtout les délais et les tarifs). -->
+    <section class="faq" id="faq">
+      <div class="faq__head">
+        <h2 class="title">Questions<br />fréquentes</h2>
+        <p class="faq__lead">Tout ce qu'on me demande souvent avant de commencer.</p>
+      </div>
+      <div class="faq__list">
+        <details class="qa" data-reveal>
+          <summary><span>Quels types de vidéos montes-tu ?</span><span class="qa__sign" aria-hidden="true"></span></summary>
+          <div class="qa__body"><p>Clips musicaux, publicités, documentaires, aftermovies et formats courts pour les réseaux sociaux (Instagram, TikTok, YouTube).</p></div>
+        </details>
+        <details class="qa" data-reveal>
+          <summary><span>Quels sont tes délais ?</span><span class="qa__sign" aria-hidden="true"></span></summary>
+          <div class="qa__body"><p><!-- À REMPLACER par tes vrais délais -->Cela dépend du format et de la quantité de rushes. En général, de quelques jours pour un format court à quelques semaines pour un documentaire. On fixe ensemble une date dès le brief.</p></div>
+        </details>
+        <details class="qa" data-reveal>
+          <summary><span>Combien coûte un montage ?</span><span class="qa__sign" aria-hidden="true"></span></summary>
+          <div class="qa__body"><p><!-- À REMPLACER par ta façon de facturer -->Chaque projet est différent : je fais un devis gratuit après le brief, selon la durée, le nombre de versions et les éléments à créer (motion, étalonnage, son).</p></div>
+        </details>
+        <details class="qa" data-reveal>
+          <summary><span>Combien de versions / retouches sont incluses ?</span><span class="qa__sign" aria-hidden="true"></span></summary>
+          <div class="qa__body"><p><!-- À REMPLACER -->En général deux allers-retours de retouches sont inclus. On s'accorde sur ce point dès le départ pour éviter les surprises.</p></div>
+        </details>
+        <details class="qa" data-reveal>
+          <summary><span>Travailles-tu à distance ?</span><span class="qa__sign" aria-hidden="true"></span></summary>
+          <div class="qa__body"><p>Oui. Je travaille avec des clients partout : tu m'envoies tes rushes en ligne (WeTransfer, Drive…) et on suit l'avancement par visio ou messages. Je peux aussi me déplacer à Paris.</p></div>
+        </details>
+        <details class="qa" data-reveal>
+          <summary><span>Comment t'envoyer mes fichiers ?</span><span class="qa__sign" aria-hidden="true"></span></summary>
+          <div class="qa__body"><p>Par un lien de téléchargement (WeTransfer, Google Drive, Dropbox…). Je te guide pour préparer et nommer tes fichiers si besoin.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <!-- Fiche FAQ pour Google (reprend les questions-réponses ci-dessus).
+         À REMPLACER : garde ce bloc cohérent avec les réponses du dessus. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Quels types de vidéos montes-tu ?", "acceptedAnswer": { "@type": "Answer", "text": "Clips musicaux, publicités, documentaires, aftermovies et formats courts pour les réseaux sociaux (Instagram, TikTok, YouTube)." } },
+        { "@type": "Question", "name": "Quels sont tes délais ?", "acceptedAnswer": { "@type": "Answer", "text": "Cela dépend du format et de la quantité de rushes, de quelques jours pour un format court à quelques semaines pour un documentaire. On fixe une date dès le brief." } },
+        { "@type": "Question", "name": "Combien coûte un montage ?", "acceptedAnswer": { "@type": "Answer", "text": "Chaque projet est différent : devis gratuit après le brief, selon la durée, le nombre de versions et les éléments à créer." } },
+        { "@type": "Question", "name": "Travailles-tu à distance ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui, avec des clients partout : rushes envoyés en ligne et suivi par visio ou messages. Déplacements possibles à Paris." } }
+      ]
+    }
+    </script>
 
     <!-- Bandeau défilant de disponibilité -->
     <div class="ticker" aria-hidden="true">
