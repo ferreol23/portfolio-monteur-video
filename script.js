@@ -1,6 +1,6 @@
 /* ============================================================
-   Animations et interactions du site. Rien d'essentiel au
-   contenu : si le JavaScript est coupé, tout reste lisible.
+   Site animations and interactions. Nothing essential to the
+   content: if JavaScript is off, everything stays readable.
    ============================================================ */
 
 (function () {
@@ -15,7 +15,7 @@
     return pad(Math.floor(s / 3600)) + ":" + pad(Math.floor(s / 60) % 60) + ":" + pad(s % 60) + ":" + pad(frames % fps);
   };
 
-  /* --- Rideau d'ouverture : un timecode qui défile puis le rideau se lève --- */
+  /* --- Opening curtain: a running timecode, then the curtain lifts --- */
   var introTc = document.getElementById("intro-tc");
   if (reduce) {
     root.classList.add("is-loaded");
@@ -28,11 +28,11 @@
       else { root.classList.add("is-loaded"); }
     };
     requestAnimationFrame(tickIntro);
-    // sécurité si l'onglet est en arrière-plan
+    // fallback if the tab is in the background
     setTimeout(function () { root.classList.add("is-loaded"); }, 1600);
   }
 
-  /* --- Année et heure locale (Paris) dans le pied de page --- */
+  /* --- Year and local time (Paris) in the footer --- */
   var year = document.getElementById("year");
   if (year) { year.textContent = new Date().getFullYear(); }
 
@@ -40,17 +40,17 @@
   if (clock) {
     var showTime = function () {
       try {
-        // À REMPLACER si tu n'es pas à Paris : ex. "America/Montreal"
-        clock.textContent = new Date().toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
+        // TO REPLACE if you are not in Paris: e.g. "America/Montreal"
+        clock.textContent = new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
       } catch (e) {
-        clock.textContent = new Date().toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+        clock.textContent = new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
       }
     };
     showTime();
     setInterval(showTime, 15000);
   }
 
-  /* --- Hero : timecode "REC" et bouton pause --- */
+  /* --- Hero: "REC" timecode and pause button --- */
   var hero = document.querySelector(".hero");
   var heroTc = document.getElementById("hero-tc");
   var pauseBtn = document.getElementById("pause");
@@ -62,7 +62,7 @@
     paused = p;
     hero.classList.toggle("is-paused", p);
     if (pauseBtn) {
-      pauseBtn.textContent = p ? "Lecture" : "Pause";
+      pauseBtn.textContent = p ? "Play" : "Pause";
       pauseBtn.setAttribute("aria-pressed", p ? "true" : "false");
     }
     if (heroVideo) { if (p) { heroVideo.pause(); } else { heroVideo.play(); } }
@@ -77,7 +77,7 @@
     }
   }
 
-  /* --- Menu mobile --- */
+  /* --- Mobile menu --- */
   var burger = document.getElementById("burger");
   var menu = document.getElementById("menu");
   function setMenu(open) {
@@ -85,7 +85,7 @@
     burger.classList.toggle("is-open", open);
     document.body.classList.toggle("menu-open", open);
     burger.setAttribute("aria-expanded", open ? "true" : "false");
-    burger.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   }
   if (burger && menu) {
     burger.addEventListener("click", function () { setMenu(!menu.classList.contains("is-open")); });
@@ -97,7 +97,7 @@
     });
   }
 
-  /* --- Apparition des blocs au défilement --- */
+  /* --- Blocks reveal on scroll --- */
   var items = document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window && !reduce) {
     var revealObs = new IntersectionObserver(function (entries) {
@@ -115,7 +115,7 @@
     items.forEach(function (el) { el.classList.add("is-in"); });
   }
 
-  /* --- Lien actif dans le menu selon la section visible --- */
+  /* --- Active menu link based on the visible section --- */
   var navLinks = document.querySelectorAll('.nav__links a[href^="#"]');
   if ("IntersectionObserver" in window) {
     var spy = new IntersectionObserver(function (entries) {
@@ -129,7 +129,7 @@
     document.querySelectorAll("#travaux, #showreel, #methode, #apropos, #faq, #contact").forEach(function (s) { spy.observe(s); });
   }
 
-  /* --- Phrase d'intro : les mots s'allument un par un au défilement --- */
+  /* --- Intro statement: words light up one by one on scroll --- */
   var statement = document.querySelector("[data-words]");
   if (statement && !reduce) {
     var words = [];
@@ -167,7 +167,7 @@
     lightWords();
   }
 
-  /* --- Bascule Liste / Grille des projets --- */
+  /* --- List / Grid project toggle --- */
   var work = document.querySelector(".work");
   var toggles = document.querySelectorAll(".view-toggle__btn");
   toggles.forEach(function (btn) {
@@ -182,7 +182,7 @@
     });
   });
 
-  /* --- Aperçu du projet qui suit la souris (vue liste, ordinateur) --- */
+  /* --- Project preview following the mouse (list view, desktop) --- */
   var preview = document.querySelector(".cursor-preview");
   var previewInner = preview && preview.querySelector(".cursor-preview__inner");
   if (preview && finePointer && !reduce) {
@@ -213,15 +213,15 @@
     });
   }
 
-  /* --- Liens encore vides (href="#") : on évite d'ouvrir un onglet inutile.
-     Dès que tu remplaces le "#" par une vraie adresse, le lien marche normalement. --- */
+  /* --- Still-empty links (href="#"): avoid opening a useless tab.
+     As soon as you replace "#" with a real address, the link works normally. --- */
   document.querySelectorAll('a[href="#"]').forEach(function (a) {
     a.addEventListener("click", function (e) {
       if (a.getAttribute("href") === "#") { e.preventDefault(); }
     });
   });
 
-  /* --- Bouton "Me contacter" magnétique (attiré par la souris) --- */
+  /* --- Magnetic "Get in touch" button (pulled toward the mouse) --- */
   if (finePointer && !reduce) {
     document.querySelectorAll("[data-magnetic]").forEach(function (el) {
       var label = el.querySelector("span");
