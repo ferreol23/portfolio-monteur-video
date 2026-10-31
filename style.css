@@ -738,6 +738,10 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
    16. LOGO + NOUVELLES SECTIONS (méthode, confiance, avis, FAQ)
    ============================================================ */
 
+/* --- Sécurité : si script.js ne se charge pas, le nom du hero apparaît quand même --- */
+@keyframes hero-line-fallback { to { transform: translateY(0); } }
+.js:not(.is-loaded) .line > span { animation: hero-line-fallback 0.6s var(--ease) 2.6s forwards; }
+
 /* --- Logo dans la barre de navigation --- */
 .nav__brand { display: inline-flex; align-items: center; gap: 9px; }
 .logo { flex-shrink: 0; }

@@ -213,6 +213,14 @@
     });
   }
 
+  /* --- Liens encore vides (href="#") : on évite d'ouvrir un onglet inutile.
+     Dès que tu remplaces le "#" par une vraie adresse, le lien marche normalement. --- */
+  document.querySelectorAll('a[href="#"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (a.getAttribute("href") === "#") { e.preventDefault(); }
+    });
+  });
+
   /* --- Bouton "Me contacter" magnétique (attiré par la souris) --- */
   if (finePointer && !reduce) {
     document.querySelectorAll("[data-magnetic]").forEach(function (el) {
